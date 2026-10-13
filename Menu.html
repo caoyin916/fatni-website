@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu | Fat Ni BBQ 胖妮烧烤 — Lamb Skewers, Seafood &amp; More</title>
+<meta name="description" content="Browse the full Fat Ni BBQ menu — lamb skewers, charcoal-grilled seafood, vegetables, sausages, noodles, sides, beer and more. Two DFW locations: Plano &amp; Carrollton.">
+<link rel="canonical" href="https://PLACEHOLDER_DOMAIN/Menu.html">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fat Ni BBQ">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://PLACEHOLDER_DOMAIN/Menu.html">
+<meta property="og:title" content="Menu | Fat Ni BBQ — Charcoal BBQ Skewers in DFW">
+<meta property="og:description" content="Lamb skewers, charcoal-grilled seafood, vegetables, sausages, noodles, sides, beer. Order online for carryout.">
+<meta property="og:image" content="https://PLACEHOLDER_DOMAIN/og-image.jpg">
+<meta property="og:image:alt" content="Fat Ni BBQ menu spread">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Menu | Fat Ni BBQ 胖妮烧烤">
+<meta name="twitter:description" content="Charcoal BBQ skewers, seafood, vegetables and more in Plano &amp; Carrollton, TX.">
+<meta name="twitter:image" content="https://PLACEHOLDER_DOMAIN/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@1,700;1,900&family=Montserrat:wght@600;700;800&family=Noto+Serif+SC:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<script>document.documentElement.className += ' js';</script>
+<link rel="stylesheet" href="css/styles.css?v=1">
+
+<!-- ===== Structured data: Menu (Schema.org JSON-LD) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "@id": "https://PLACEHOLDER_DOMAIN/#menu",
+  "name": "Fat Ni BBQ Menu",
+  "url": "https://PLACEHOLDER_DOMAIN/Menu.html",
+  "inLanguage": ["en-US", "zh-Hans"],
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Skewers",
+      "description": "Charcoal-grilled skewers — lamb, beef, chicken and more.",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Lamb Skewer / 羊肉串", "description": "Classic cumin-spiced lamb on a skewer, grilled over charcoal." },
+        { "@type": "MenuItem", "name": "Beef Skewer / 牛肉串" },
+        { "@type": "MenuItem", "name": "Chicken Skewer / 鸡肉串" },
+        { "@type": "MenuItem", "name": "Pork Belly / 五花肉串" },
+        { "@type": "MenuItem", "name": "Beef Tendon / 牛筋串" },
+        { "@type": "MenuItem", "name": "Chicken Heart / 鸡心" },
+        { "@type": "MenuItem", "name": "Gizzard / 鸡胗" }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Seafood",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Scallop / 扇贝" },
+        { "@type": "MenuItem", "name": "Squid / 鱿鱼" },
+        { "@type": "MenuItem", "name": "Shrimp / 大虾" },
+        { "@type": "MenuItem", "name": "Oyster / 生蚝" }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Vegetables",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Corn / 玉米" },
+        { "@type": "MenuItem", "name": "Eggplant / 茄子" },
+        { "@type": "MenuItem", "name": "Enoki Mushroom / 金针菇" }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Drinks & Beer",
+      "hasMenuItem": [
+        { "@type": "MenuItem", "name": "Tsingtao Beer / 青岛啤酒" },
+        { "@type": "MenuItem", "name": "Soda" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  /* One photo per row, each scaled to fill the full page width. */
+  .menu-board {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 8px;
+  }
+  .menu-board figure { margin: 0; }
+  .menu-board img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--line);
+  }
+
+  /* ===== Browsable menu ===== */
+  .menu-browse { padding-top: 16px; }
+  .menu-tip { display: inline-flex; align-items: center; gap: 7px; color: var(--accent); font-weight: 600; }
+  .menu-tip .photo-icon { opacity: 1; margin: 0; }
+
+  .menu-filter {
+    position: sticky; top: 70px; z-index: 40;
+    margin-top: 36px; padding: 14px 0;
+    background: rgba(24,18,16,.94);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  html:not(.js) .menu-filter { display: none; }
+  .menu-filter-list { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding: 2px 0; }
+  .menu-filter-list::-webkit-scrollbar { display: none; }
+  .menu-filter-btn:first-child { margin-left: auto; }
+  .menu-filter-btn:last-child { margin-right: auto; }
+  .menu-filter-btn {
+    flex: 0 0 auto;
+    font-family: var(--font-ui); font-weight: 700; font-size: 13px; letter-spacing: .02em;
+    padding: 9px 18px; border-radius: 999px;
+    border: 1.5px solid var(--line); background: var(--paper); color: var(--ink-soft);
+    cursor: pointer;
+    transition: color .2s var(--ease), border-color .2s var(--ease), box-shadow .2s var(--ease);
+  }
+  .menu-filter-btn:hover { color: var(--accent); border-color: rgba(224,92,40,.45); }
+  .menu-filter-btn[aria-pressed="true"] {
+    background-image: var(--chili-oil); color: #fff; border-color: transparent;
+    box-shadow: 0 6px 16px rgba(224,92,40,.26);
+  }
+  .menu-filter-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .menu-cats { columns: 3; column-gap: 24px; padding-top: 36px; text-align: left; }
+  .menu-cats.is-filtered { columns: 1; max-width: 760px; margin: 0 auto; }
+  .menu-cat {
+    break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 24px;
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
+  }
+  .menu-cat[hidden] { display: none; }
+  .menu-cat-head {
+    position: relative;
+    display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+    padding: 15px 22px 17px;
+    background-image: var(--ink-grad); color: #fff;
+  }
+  .menu-cat-head::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px;
+    background-image: var(--chili-oil);
+  }
+  .menu-cat-head h3 { margin: 0; font-size: 17px; font-weight: 800; letter-spacing: .01em; }
+  .menu-cat-head .cn { color: var(--gold); font-size: 15px; font-weight: 600; white-space: nowrap; font-family: var(--font-cn); }
+  .menu-cat-note { margin: 0; padding: 12px 22px 0; font-size: 13px; color: var(--ink-mute); }
+  .menu-list { padding: 4px 22px 12px; }
+
+  .menu-item {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;
+    width: 100%; margin: 0; padding: 13px 0;
+    background: none; border: 0; border-bottom: 1px dashed var(--line);
+    color: inherit; font: inherit; text-align: left; cursor: pointer;
+    break-inside: avoid;
+  }
+  .menu-item:last-child { border-bottom: 0; }
+  .menu-item:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  .menu-item-name { display: block; min-width: 0; }
+  .menu-item-en {
+    display: block;
+    font-family: var(--font-ui); font-weight: 600; font-size: 15.5px; line-height: 1.35;
+    color: var(--ink); transition: color .2s var(--ease);
+  }
+  .menu-item:hover .menu-item-en, .menu-item:focus-visible .menu-item-en { color: var(--accent); }
+  .menu-item-meta { display: flex; flex-wrap: wrap; gap: 2px 10px; margin-top: 3px; font-size: 13px; line-height: 1.45; color: var(--ink-mute); }
+  .menu-item-note { font-style: italic; }
+  .menu-item-price {
+    font-family: var(--font-ui); font-weight: 700; font-size: 15.5px; line-height: 1.35;
+    color: var(--accent); white-space: nowrap;
+  }
+  .menu-item-price small, .dish-dialog-price small {
+    font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--ink-mute); margin-right: 3px;
+  }
+  .photo-icon {
+    display: inline-block; width: 15px; height: 15px; margin-left: 7px; vertical-align: -2px;
+    background-color: currentColor; opacity: .45;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .menu-item:hover .photo-icon { opacity: 1; }
+  .menu-flag {
+    display: inline-block; margin-left: 7px; padding: 2px 7px; vertical-align: 2px;
+    border-radius: 999px;
+    font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; line-height: 1.4;
+  }
+  .menu-flag--spicy { background: rgba(224,92,40,.15); color: var(--accent); }
+  .menu-flag--popular { background: rgba(212,144,48,.20); color: var(--gold); }
+
+  .menu-extras { margin: 0 22px 20px; padding: 14px 16px; background: var(--charcoal-light); border-radius: var(--radius); }
+  .menu-extras h4 {
+    margin: 0 0 6px; font-family: var(--font-ui); font-size: 11px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--accent);
+  }
+  .menu-extras ul { list-style: none; margin: 0; padding: 0; font-size: 13.5px; }
+  .menu-extras li { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; color: var(--ink-soft); }
+  .menu-extras li span:last-child { font-family: var(--font-ui); font-weight: 600; color: var(--ink); white-space: nowrap; }
+
+  @media (min-width: 760px) {
+    .menu-cats.is-filtered .menu-list { columns: 2; column-gap: 36px; }
+    .menu-cats.is-filtered .menu-extras ul { columns: 2; column-gap: 36px; }
+  }
+  @media (max-width: 1024px) { .menu-cats { columns: 2; } }
+  @media (max-width: 680px) {
+    .menu-cats { columns: 1; }
+    .menu-filter { margin-top: 28px; padding: 12px 0; }
+    .menu-list { padding: 2px 18px 10px; }
+    .menu-cat-head { padding: 14px 18px 16px; }
+    .menu-cat-note { padding: 12px 18px 0; }
+    .menu-extras { margin: 0 18px 18px; }
+  }
+
+  /* ===== Dish photo dialog ===== */
+  html.dialog-open { overflow: hidden; scrollbar-gutter: stable; }
+  .dish-dialog {
+    width: min(520px, calc(100% - 32px)); max-height: calc(100dvh - 32px);
+    padding: 0; border: 0; border-radius: var(--radius-lg); overflow: hidden;
+    background: var(--paper); color: var(--ink);
+    box-shadow: 0 30px 70px rgba(0,0,0,.60);
+  }
+  .dish-dialog::backdrop { background: rgba(0,0,0,.72); }
+  .dish-dialog[open] { animation: dishIn .28s var(--ease); }
+  @keyframes dishIn { from { opacity: 0; transform: translateY(14px) scale(.98); } }
+  .dish-dialog-inner { position: relative; max-height: inherit; overflow-y: auto; }
+  .dish-dialog-close {
+    position: absolute; top: 12px; right: 12px; z-index: 2;
+    width: 38px; height: 38px; border: 0; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(24,18,16,.88); color: var(--cream); box-shadow: var(--shadow-md);
+    cursor: pointer; transition: background .2s var(--ease), color .2s var(--ease);
+  }
+  .dish-dialog-close:hover { background: var(--accent); color: #fff; }
+  .dish-dialog-close svg { width: 18px; height: 18px; }
+  .dish-dialog-media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--charcoal-light); }
+  .dish-dialog-media.is-portrait { aspect-ratio: auto; height: min(58vh, 650px); }
+  .dish-photo { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s var(--ease); }
+  .dish-photo.is-loaded { opacity: 1; }
+  .dish-dialog-media.is-contain { background: var(--charcoal-mid); }
+  .dish-dialog-media.is-contain .dish-photo { object-fit: contain; padding: 20px; }
+  .dish-dialog-media.is-loading::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.08) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: dishShimmer 1.2s linear infinite;
+  }
+  @keyframes dishShimmer { from { background-position: 150% 0; } to { background-position: -50% 0; } }
+  .dish-dialog-placeholder {
+    height: 100%; padding: 24px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+    text-align: center;
+    background: radial-gradient(90% 90% at 50% 40%, var(--charcoal-lift) 0%, var(--charcoal-mid) 100%);
+  }
+  .dish-dialog-placeholder img { width: 84px; height: 84px; object-fit: contain; opacity: .45; margin-bottom: 12px; }
+  .dish-dialog-placeholder strong { font-family: var(--font-head); font-size: 20px; color: var(--ink); }
+  .dish-dialog-placeholder span { font-size: 14px; color: var(--ink-mute); }
+  .dish-dialog-body { padding: 22px 26px 26px; }
+  .dish-dialog-cat {
+    margin: 0 0 6px; font-family: var(--font-ui); font-size: 11px; font-weight: 700;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--accent);
+  }
+  .dish-dialog-title { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+  .dish-dialog-title h3 { margin: 0; font-size: 22px; }
+  .dish-dialog-price { font-family: var(--font-ui); font-weight: 800; font-size: 20px; color: var(--accent); white-space: nowrap; }
+  .dish-dialog-cn { margin: 4px 0 0; font-size: 15px; color: var(--gold); font-family: var(--font-cn); }
+  .dish-dialog-note { margin: 6px 0 0; font-size: 14px; font-style: italic; color: var(--ink-mute); }
+  .dish-dialog-cn:empty, .dish-dialog-note:empty, .dish-dialog-flags:empty { display: none; }
+  .dish-dialog-flags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .dish-dialog-flags .menu-flag { margin-left: 0; }
+  .dish-dialog-body .btn { margin-top: 20px; padding: 12px 24px; font-size: 13px; }
+  @media (prefers-reduced-motion: reduce) {
+    .dish-dialog[open], .dish-dialog-media.is-loading::after { animation: none; }
+    .dish-photo { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="logo.svg" alt="Fat Ni BBQ logo"></span>
+      <span class="brand-name">Fat Ni BBQ <span class="brand-cn" lang="zh-Hans">胖妮烧烤</span></span>
+    </a>
+    <nav class="main-nav" id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="Menu.html">Menu</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="Location.html">Locations &amp; Hours</a></li>
+        <li><a href="Catering.html">Catering &amp; Events</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a class="btn" href="#" data-order-toggle>Order Online</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-head" data-screen-label="Menu page head">
+  <p class="section-eyebrow">Come Hungry</p>
+  <h1>The Fat Ni BBQ Menu</h1>
+  <p>Charcoal-grilled to order — skewers, seafood, vegetables, noodles &amp; more.</p>
+</div>
+
+<section data-screen-label="Menu board">
+  <div class="wrap center">
+    <div class="menu-board">
+      <figure class="menu-main" data-reveal>
+        <img src="menu-photo/main-menu.jpg" alt="Fat Ni BBQ full menu board" fetchpriority="high" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="menu-browse" id="full-menu" data-screen-label="Full menu">
+  <div class="wrap center" data-reveal>
+    <p class="section-eyebrow">Tap To Explore</p>
+    <h2 class="section-title">The Full Menu</h2>
+    <p class="section-lead"><span class="menu-tip"><span class="photo-icon" aria-hidden="true"></span>Tap any dish</span> to see its photo.</p>
+  </div>
+
+  <div class="menu-filter">
+    <div class="wrap">
+      <div class="menu-filter-list" role="group" aria-label="Filter menu by category">
+        <button type="button" class="menu-filter-btn" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="menu-filter-btn" data-filter="skewers" aria-pressed="false">Skewers 串串</button>
+        <button type="button" class="menu-filter-btn" data-filter="seafood" aria-pressed="false">Seafood 海鲜</button>
+        <button type="button" class="menu-filter-btn" data-filter="vegetables" aria-pressed="false">Vegetables 蔬菜</button>
+        <button type="button" class="menu-filter-btn" data-filter="sausages" aria-pressed="false">Sausages 肠类</button>
+        <button type="button" class="menu-filter-btn" data-filter="noodles" aria-pressed="false">Noodles 主食</button>
+        <button type="button" class="menu-filter-btn" data-filter="sides" aria-pressed="false">Sides 小食</button>
+        <button type="button" class="menu-filter-btn" data-filter="drinks" aria-pressed="false">Drinks 饮料</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="menu-cats" data-reveal>
+
+      <div class="menu-cat" id="skewers">
+        <div class="menu-cat-head"><h3>Skewers</h3><span class="cn" lang="zh-Hans">串串</span></div>
+        <p class="menu-cat-note">All skewers grilled over real charcoal, seasoned to order</p>
+        <div class="menu-list">
+          <button type="button" class="menu-item" data-photo="menu-photo/menu-dish-photo/Lamb Skewer.jpg">
+            <span class="menu-item-name"><span class="menu-item-en">Lamb Skewer<span class="menu-flag menu-flag--spicy">Spicy</span><span class="menu-flag menu-flag--popular">Popular</span></span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">羊肉串</span><span class="menu-item-note">Cumin spiced</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item" data-photo="menu-photo/menu-dish-photo/Beef Skewer.jpg">
+            <span class="menu-item-name"><span class="menu-item-en">Beef Skewer</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">牛肉串</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item" data-photo="menu-photo/menu-dish-photo/Chicken Skewer.jpg">
+            <span class="menu-item-name"><span class="menu-item-en">Chicken Skewer</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">鸡肉串</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Pork Belly</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">五花肉串</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Beef Tendon</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">牛筋串</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Chicken Heart</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">鸡心</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Gizzard</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">鸡胗</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-cat" id="seafood">
+        <div class="menu-cat-head"><h3>Seafood</h3><span class="cn" lang="zh-Hans">海鲜</span></div>
+        <div class="menu-list">
+          <button type="button" class="menu-item" data-photo="menu-photo/menu-dish-photo/Scallop.jpg">
+            <span class="menu-item-name"><span class="menu-item-en">Scallop<span class="menu-flag menu-flag--popular">Popular</span></span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">扇贝</span><span class="menu-item-note">Garlic butter or spicy</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item" data-photo="menu-photo/menu-dish-photo/Squid.jpg">
+            <span class="menu-item-name"><span class="menu-item-en">Squid</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">鱿鱼</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Shrimp</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">大虾</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Fish Fillet</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">鱼片</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Oyster</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">生蚝</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-cat" id="vegetables">
+        <div class="menu-cat-head"><h3>Vegetables</h3><span class="cn" lang="zh-Hans">蔬菜</span></div>
+        <div class="menu-list">
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Corn</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">玉米</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Eggplant</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">茄子</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Mushrooms</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">香菇</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Enoki Mushroom</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">金针菇</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Bell Pepper</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">彩椒</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Leek</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">韭菜</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-cat" id="sausages">
+        <div class="menu-cat-head"><h3>Sausages</h3><span class="cn" lang="zh-Hans">肠类</span></div>
+        <div class="menu-list">
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Chinese Sausage</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">烤肠</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Cheddar Sausage</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">芝士肠</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Blood Sausage</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">血肠</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-cat" id="noodles">
+        <div class="menu-cat-head"><h3>Noodles &amp; Flatbread</h3><span class="cn" lang="zh-Hans">主食</span></div>
+        <div class="menu-list">
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Hand-Pulled Noodles</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">拉面</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Garlic Flatbread</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">蒜香烤饼</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Sesame Flatbread</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">芝麻烧饼</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-cat" id="sides">
+        <div class="menu-cat-head"><h3>Sides &amp; Salads</h3><span class="cn" lang="zh-Hans">小食</span></div>
+        <div class="menu-list">
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Cucumber Salad</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">拍黄瓜</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Peanut Salad</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">花生拌菜</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Pickled Cabbage</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">泡菜</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Edamame</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">毛豆</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="menu-cat" id="drinks">
+        <div class="menu-cat-head"><h3>Drinks &amp; Beer</h3><span class="cn" lang="zh-Hans">饮料</span></div>
+        <div class="menu-list">
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Tsingtao Beer</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">青岛啤酒</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Yanjing Beer</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">燕京啤酒</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Soda</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">汽水</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+          <button type="button" class="menu-item">
+            <span class="menu-item-name"><span class="menu-item-en">Bottled Water</span><span class="menu-item-meta"><span class="menu-item-cn" lang="zh-Hans">矿泉水</span></span></span>
+            <span class="menu-item-price">PLACEHOLDER</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="center" style="margin-top:28px" data-reveal>
+      <a class="btn btn--lg" href="#" data-order-toggle>Order Online</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-brand">
+        <span class="brand-mark"><img src="logo.svg" alt="Fat Ni BBQ logo"></span>
+        <span class="brand-name">Fat Ni BBQ</span>
+      </div>
+      <p>Authentic Chinese charcoal BBQ in Plano &amp; Carrollton, TX — lamb skewers, seafood, sauce bar. Order online for carryout!</p>
+      <div class="footer-social">
+        <a href="https://PLACEHOLDER_INSTAGRAM_URL" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.21 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.21 8.8 2.2 12 2.2zm0 3.65A6.15 6.15 0 1 0 12 18.15 6.15 6.15 0 0 0 12 5.85zm0 10.15A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 1-1.44-1.44 1.44 1.44 0 0 1 1.44 1.44z"/></svg></a>
+        <a href="https://PLACEHOLDER_TIKTOK_URL" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.05-2.82h-3.1v12.27a2.43 2.43 0 0 1-2.43 2.43 2.43 2.43 0 1 1 .67-4.77V9.74a5.56 5.56 0 0 0-.67-.04 5.55 5.55 0 1 0 5.55 5.55V9.01a7.34 7.34 0 0 0 4.3 1.38V7.28a4.28 4.28 0 0 1-3.27-1.46z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="Menu.html">Menu</a>
+      <a href="Gallery.html">Gallery</a>
+      <a href="Location.html">Locations &amp; Hours</a>
+      <a href="Catering.html">Catering &amp; Events</a>
+      <a href="#" data-order-toggle>Order Online</a>
+    </div>
+    <div>
+      <h4>Visit Us</h4>
+      <div class="footer-location">
+        <a href="https://www.google.com/maps/search/?api=1&query=111+W+Spring+Creek+Pkwy+%23130+Plano+TX+75023" target="_blank" rel="noopener">111 W Spring Creek Pkwy #130<br>Plano, TX 75023</a>
+        <a href="tel:+14696619898">(469) 661-9898</a>
+        <p style="margin:10px 0 0">Hours: PLACEHOLDER</p>
+      </div>
+      <div class="footer-location">
+        <a href="https://www.google.com/maps/search/?api=1&query=2528+Old+Denton+Rd+Ste+310+Carrollton+TX+75006" target="_blank" rel="noopener">2528 Old Denton Rd, Ste 310<br>Carrollton, TX 75006</a>
+        <a href="tel:+14699008887">(469) 900-8887</a>
+        <p style="margin:10px 0 0">Mon–Thu 11:30 AM – 9:30 PM<br>Fri–Sat 11:30 AM – 10 PM<br>Sun 11:30 AM – 9:30 PM</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>&copy; 2026 Fat Ni BBQ. All rights reserved.</span>
+    <a class="owner-login" href="Gallery.html#admin">Owner login</a>
+  </div>
+</footer>
+
+<!-- ===== Sticky mobile order bar ===== -->
+<div class="sticky-order-bar">
+  <a class="btn btn--lg" href="#" data-order-toggle>Order Online</a>
+</div>
+
+<dialog class="dish-dialog" id="dishDialog" aria-labelledby="dishDialogTitle">
+  <div class="dish-dialog-inner">
+    <button type="button" class="dish-dialog-close" data-dialog-close aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+    <div class="dish-dialog-media"></div>
+    <div class="dish-dialog-body">
+      <p class="dish-dialog-cat"></p>
+      <div class="dish-dialog-title"><h3 id="dishDialogTitle"></h3><span class="dish-dialog-price"></span></div>
+      <p class="dish-dialog-cn" lang="zh-Hans"></p>
+      <p class="dish-dialog-note"></p>
+      <div class="dish-dialog-flags"></div>
+      <a class="btn" href="#" data-order-toggle>Order Online</a>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const t = document.getElementById('navToggle');
+  const n = document.getElementById('nav');
+  t && t.addEventListener('click', () => n.classList.toggle('open'));
+</script>
+<script src="js/reveal.js?v=1"></script>
+<script src="js/external-links.js?v=1"></script>
+<script src="js/order-locations.js?v=1"></script>
+<script src="js/menu.js?v=1"></script>
+</body>
+</html>
