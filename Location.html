@@ -54,9 +54,9 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-        "opens": "11:00", "closes": "21:00",
-        "description": "PLACEHOLDER — confirm actual hours with owner"
+        "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday","Monday"],
+        "opens": "11:00",
+        "closes": "02:00"
       }
     ],
     "potentialAction": {
@@ -88,12 +88,11 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday"],
-        "opens": "11:30", "closes": "21:30"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Friday","Saturday"],
+        "dayOfWeek": ["Wednesday","Thursday","Friday","Saturday","Sunday","Monday"],
+        "opens": "11:00",
+        "closes": "02:00"
+      }
+    ],
         "opens": "11:30", "closes": "22:00"
       },
       {
@@ -222,7 +221,8 @@
       <div class="info-block">
         <h4>Hours</h4>
         <table class="hours-table">
-          <tr><td colspan="2" style="color:var(--ink-mute);font-style:italic">Confirm with owner — PLACEHOLDER</td></tr>
+          <tr><td>Wed – Mon</td><td>11 AM – 2 AM</td></tr>
+          <tr><td>Tuesday</td><td style="color:var(--ink-mute)">Closed</td></tr>
         </table>
       </div>
 
@@ -268,9 +268,8 @@
       <div class="info-block">
         <h4>Hours</h4>
         <table class="hours-table">
-          <tr><td>Mon – Thu</td><td>11:30 AM – 9:30 PM</td></tr>
-          <tr><td>Fri – Sat</td><td>11:30 AM – 10:00 PM</td></tr>
-          <tr><td>Sunday</td><td>11:30 AM – 9:30 PM</td></tr>
+          <tr><td>Wed – Mon</td><td>11 AM – 2 AM</td></tr>
+          <tr><td>Tuesday</td><td style="color:var(--ink-mute)">Closed</td></tr>
         </table>
       </div>
 
@@ -329,12 +328,12 @@
       <div class="footer-location">
         <a href="https://www.google.com/maps/search/?api=1&query=111+W+Spring+Creek+Pkwy+%23130+Plano+TX+75023" target="_blank" rel="noopener">111 W Spring Creek Pkwy #130<br>Plano, TX 75023</a>
         <a href="tel:+14696619898">(469) 661-9898</a>
-        <p style="margin:10px 0 0">Hours: PLACEHOLDER</p>
+        <p style="margin:10px 0 0">Wed–Mon: 11 AM – 2 AM<br>Tue: Closed</p>
       </div>
       <div class="footer-location">
         <a href="https://www.google.com/maps/search/?api=1&query=2528+Old+Denton+Rd+Ste+310+Carrollton+TX+75006" target="_blank" rel="noopener">2528 Old Denton Rd, Ste 310<br>Carrollton, TX 75006</a>
         <a href="tel:+14699008887">(469) 900-8887</a>
-        <p style="margin:10px 0 0">Mon–Thu 11:30 AM – 9:30 PM<br>Fri–Sat 11:30 AM – 10 PM<br>Sun 11:30 AM – 9:30 PM</p>
+        <p style="margin:10px 0 0">Wed–Mon: 11 AM – 2 AM<br>Tue: Closed</p>
       </div>
     </div>
   </div>
@@ -358,35 +357,14 @@
 <!-- "Open Now" badge using America/Chicago timezone -->
 <script>
 (function () {
+  /* Wed–Mon 11 AM – 2 AM (crosses midnight); Tue closed. days: Sun=0,Mon=1,Tue=2,Wed=3,Thu=4,Fri=5,Sat=6 */
+  var OPEN_RULE = { days: [0,1,3,4,5,6], open: 11*60, close: 26*60 };
   var LOCATIONS = [
-    {
-      badgeId: 'plano-badge',
-      hours: [
-        /* TODO: replace with confirmed Plano hours */
-        { days: [0,1,2,3,4,5,6], open: 11*60, close: 21*60 }
-      ]
-    },
-    {
-      badgeId: 'carrollton-badge',
-      hours: [
-        { days: [1,2,3,4], open: 11*60+30, close: 21*60+30 },
-        { days: [5,6],      open: 11*60+30, close: 22*60 },
-        { days: [0],        open: 11*60+30, close: 21*60+30 }
-      ]
-    }
+    { badgeId: 'plano-badge',      hours: [OPEN_RULE] },
+    { badgeId: 'carrollton-badge', hours: [OPEN_RULE] }
   ];
 
   function isOpen(hourRules) {
-    var now = new Date(new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Chicago', hour: 'numeric', minute: 'numeric',
-      weekday: 'short', hour12: false
-    }).format(new Date()).replace(/,/, ''));
-    var chicagoStr = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Chicago', weekday: 'short',
-      hour: '2-digit', minute: '2-digit', hour12: false
-    }).format(new Date());
-
-    /* Simpler: re-build a Date object in Chicago time */
     var chicagoParts = new Intl.DateTimeFormat('en-US', {
       timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit',
       hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
@@ -396,7 +374,16 @@
     var dow = new Date(p.year+'-'+p.month+'-'+p.day+'T'+p.hour+':'+p.minute+':'+p.second).getDay();
     var mins = parseInt(p.hour,10)*60 + parseInt(p.minute,10);
 
-    return hourRules.some(function(r){ return r.days.indexOf(dow) !== -1 && mins >= r.open && mins < r.close; });
+    return hourRules.some(function(r) {
+      if (r.close <= 24*60) {
+        return r.days.indexOf(dow) !== -1 && mins >= r.open && mins < r.close;
+      }
+      /* Hours cross midnight: open today after open time, or yesterday was open and before close time */
+      var closeNext = r.close - 24*60;
+      var prevDow = (dow + 6) % 7;
+      return (r.days.indexOf(dow) !== -1 && mins >= r.open) ||
+             (r.days.indexOf(prevDow) !== -1 && mins < closeNext);
+    });
   }
 
   LOCATIONS.forEach(function(loc){
