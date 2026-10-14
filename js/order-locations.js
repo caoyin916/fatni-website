@@ -8,12 +8,12 @@
     {
       name: "Carrollton, TX — DoorDash",
       addr: "2528 Old Denton Rd, Ste 310, Carrollton, TX 75006",
-      url: "https://www.doordash.com/store/fat-ni-bbq-carrollton-992685/1483008/"
+      url: "https://www.doordash.com/store/fat-ni-bbq-carrollton-992685/1483008/?rwg_token=AE37R_gX6p2m7AtAAz2u2vpOeki8zWLr1jnVXr-NMmApnRTtBedBBIzau2oXEO89bjtMpwC-9SUH12SLiM7ol7lGIp1AZJn5VQ==&utm_campaign=gpa"
     },
     {
       name: "Carrollton, TX — Fantuan 饭团",
       addr: "2528 Old Denton Rd, Ste 310, Carrollton, TX 75006",
-      url: "https://www.fantuanorder.com/store/fat-ni-bbq/us-1440926880?page=restaurant&storeId=1440926880&country=us&city=Carrollton"
+      url: "https://www.fantuanorder.com/store/fat-ni-bbq/us-1440926880?page=restaurant&storeId=1440926880&country=us&wechatId=12&lat=32.98003&lng=-96.908427&shippingType=1&city=Carrollton&rwg_token=AE37R_h0LdTCJmC3_nZ6hCqhiFsevHis2KO3D1quM6_D8TurTfdG4A06omvLjiTc7BMP97cUkYYzYaYxeNUfMrvPe8wX780F3w%3D%3D"
     }
   ];
 
