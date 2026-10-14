@@ -1,5 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" width="460" height="120">
-  <rect width="460" height="120" rx="14" fill="none"/>
-  <text x="230" y="52" font-family="Georgia,serif" font-style="italic" font-size="48" font-weight="700" fill="#e05c28" text-anchor="middle">Fat Ni BBQ</text>
-  <text x="230" y="96" font-family="system-ui,sans-serif" font-size="28" font-weight="400" fill="#d49030" text-anchor="middle">胖妮烧烤</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 156" role="img" aria-label="Fat Ni BBQ 胖妮烧烤 — Authentic Chinese BBQ">
+
+  <!-- Top ornament: lines + diamond + lines -->
+  <line x1="28" y1="28" x2="204" y2="28" stroke="#C82010" stroke-width="1.5" stroke-linecap="round"/>
+  <polygon points="230,19 239,28 230,37 221,28" fill="#C82010"/>
+  <line x1="256" y1="28" x2="432" y2="28" stroke="#C82010" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Small accent dots flanking the diamond -->
+  <circle cx="211" cy="28" r="2.2" fill="#C82010" opacity="0.55"/>
+  <circle cx="249" cy="28" r="2.2" fill="#C82010" opacity="0.55"/>
+
+  <!-- Primary wordmark -->
+  <text x="230" y="96"
+        font-family="Georgia, 'Times New Roman', 'Palatino Linotype', serif"
+        font-style="italic"
+        font-weight="bold"
+        font-size="68"
+        text-anchor="middle"
+        fill="#C82010">Fat Ni BBQ</text>
+
+  <!-- Thin separator -->
+  <line x1="105" y1="110" x2="355" y2="110" stroke="#C82010" stroke-width="0.9" stroke-opacity="0.3"/>
+
+  <!-- Chinese name -->
+  <text x="230" y="138"
+        font-family="'PingFang SC', 'Noto Serif SC', 'Microsoft YaHei', 'Hiragino Sans GB', serif"
+        font-size="23"
+        letter-spacing="13"
+        text-anchor="middle"
+        fill="#1A1005">胖妮烧烤</text>
+
 </svg>
