@@ -1,14 +1,19 @@
 (function () {
   var ORDER_LOCATIONS = [
     {
-      name: "Plano, TX",
+      name: "Plano, TX — MealKeyway",
       addr: "111 W Spring Creek Pkwy #130, Plano, TX 75023",
       url: "https://order.mealkeyway.com/customer/release/index?mid=506733344d65316e615a445156487862392b677549773d3d#/main"
     },
     {
-      name: "Carrollton, TX",
+      name: "Carrollton, TX — DoorDash",
       addr: "2528 Old Denton Rd, Ste 310, Carrollton, TX 75006",
-      url: "PLACEHOLDER_CARROLLTON_ORDER_URL"  /* TODO: owner to provide MenuSifu URL */
+      url: "https://www.doordash.com/store/fat-ni-bbq-carrollton-992685/1483008/"
+    },
+    {
+      name: "Carrollton, TX — Fantuan 饭团",
+      addr: "2528 Old Denton Rd, Ste 310, Carrollton, TX 75006",
+      url: "https://www.fantuanorder.com/store/fat-ni-bbq/us-1440926880?page=restaurant&storeId=1440926880&country=us&city=Carrollton"
     }
   ];
 
