@@ -1,9 +1,14 @@
 (function () {
   var ORDER_LOCATIONS = [
     {
-      name: "Plano, TX — MealKeyway",
+      name: "Plano, TX",
       addr: "111 W Spring Creek Pkwy #130, Plano, TX 75023",
-      url: "https://order.mealkeyway.com/customer/release/index?mid=506733344d65316e615a445156487862392b677549773d3d#/main"
+      url: "https://www.fatnitx.com/8ue84l32/fat-ni-bbq-plano-75023/order-online?menu=All+Day+Menu&category=Lamb"
+    },
+    {
+      name: "Carrollton, TX — MealKeyway",
+      addr: "2528 Old Denton Rd, Ste 310, Carrollton, TX 75006",
+      url: "https://order.mealkeyway.com/customer/release/index?mid=506733344d65316e615a445156487862392b677549773d3d&utm_source=google&integrate_type=formal&rwg_token=AE37R_hB5gNFJcM0Ue2TEVAESxwyPOyjA5J1x7qMYvL4aR3j58xdNEw-A7VFvB98Ktdv3g4ux8_WeAiTg5AVQB6QkTfGj9F4eA%3D%3D#/main"
     },
     {
       name: "Carrollton, TX — DoorDash",
