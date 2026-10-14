@@ -1,44 +1,44 @@
-/* ===== Fat Ni BBQ — "Charcoal & Ember" design system ===== */
+/* ===== Fat Ni BBQ — "Cream & Ember" light design system ===== */
 :root {
-  /* Ground — near-black charcoal */
-  --charcoal:       #181210;   /* page background */
-  --charcoal-mid:   #251a14;   /* card / band backgrounds */
-  --charcoal-light: #3a2820;   /* borders, dividers */
-  --charcoal-lift:  #4a342a;   /* hover bg */
+  /* Ground — warm cream / parchment */
+  --charcoal:       #FAF6EF;   /* page background */
+  --charcoal-mid:   #F4EDE1;   /* card / band backgrounds */
+  --charcoal-light: #E8D9C8;   /* borders, dividers */
+  --charcoal-lift:  #EDE1D0;   /* hover bg */
 
-  /* Accent — ember fire */
-  --accent:         #e05c28;   /* primary CTA / ember orange-red */
-  --accent-dark:    #b84820;   /* hover / deeper ember */
-  --fire:           #f07c38;   /* lighter fire highlight */
-  --gold:           #d49030;   /* warm gold accent, stars */
-  --gold-light:     #f0ba60;   /* highlighted text */
+  /* Accent — Chinese red (matches logo) */
+  --accent:         #C82010;   /* primary CTA */
+  --accent-dark:    #A01A0C;   /* hover / deeper red */
+  --fire:           #E03A20;   /* lighter fire highlight */
+  --gold:           #9A6208;   /* warm gold — dark enough for light bg contrast */
+  --gold-light:     #C07E20;   /* highlighted text */
 
-  /* Text on dark ground */
-  --cream:          #f2e8d8;   /* primary text (~14:1 on charcoal) */
-  --cream-soft:     rgba(242,232,216,.72); /* secondary text */
-  --cream-mute:     rgba(242,232,216,.42); /* hint / disabled */
+  /* Text on cream ground */
+  --cream:          #1A1005;   /* primary text */
+  --cream-soft:     rgba(26,16,5,.70);  /* secondary text */
+  --cream-mute:     rgba(26,16,5,.42);  /* hint / disabled */
 
-  /* Functional aliases (used throughout the CSS) */
-  --ink:            #f2e8d8;   /* same as --cream — body copy */
-  --ink-soft:       rgba(242,232,216,.72);
-  --ink-mute:       rgba(242,232,216,.42);
-  --paper:          #251a14;   /* card backgrounds */
-  --line:           rgba(255,255,255,.10); /* subtle dividers */
-  --ember:          #e05c28;   /* alias kept for gradient references */
+  /* Functional aliases */
+  --ink:            #1A1005;
+  --ink-soft:       rgba(26,16,5,.70);
+  --ink-mute:       rgba(26,16,5,.42);
+  --paper:          #FFFFFF;   /* card backgrounds */
+  --line:           rgba(26,16,5,.10); /* subtle dividers */
+  --ember:          #C82010;
 
   /* Gradients */
-  --chili-oil:      linear-gradient(125deg, #b84820 0%, #e05c28 42%, #f07c38 100%);
+  --chili-oil:      linear-gradient(125deg, #A01A0C 0%, #C82010 42%, #E03A20 100%);
   --ink-grad:       linear-gradient(160deg, #1f1510 0%, #120e09 100%);
 
   --radius: 8px;
   --radius-lg: 18px;
   --maxw: 1180px;
 
-  /* Shadows (deeper on dark bg) */
-  --shadow-sm:      0 2px 8px rgba(0,0,0,.30);
-  --shadow-md:      0 10px 28px rgba(0,0,0,.45);
-  --shadow-lg:      0 28px 60px rgba(0,0,0,.60), 0 8px 18px rgba(0,0,0,.30);
-  --shadow-accent:  0 14px 32px rgba(224,92,40,.38);
+  /* Shadows (lighter on cream bg) */
+  --shadow-sm:      0 2px 8px rgba(0,0,0,.10);
+  --shadow-md:      0 10px 28px rgba(0,0,0,.16);
+  --shadow-lg:      0 28px 60px rgba(0,0,0,.22), 0 8px 18px rgba(0,0,0,.12);
+  --shadow-accent:  0 14px 32px rgba(200,32,16,.28);
 
   --font-head: 'Montserrat', system-ui, sans-serif;
   --font-ui:   'Montserrat', system-ui, sans-serif;
@@ -133,16 +133,16 @@ h1, h2, h3, h4 {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(24,18,16,.88);
+  background: rgba(250,246,239,.92);
   backdrop-filter: saturate(120%) blur(12px);
   -webkit-backdrop-filter: saturate(120%) blur(12px);
   border-bottom: 1px solid transparent;
   transition: box-shadow .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
 }
 .site-header.scrolled {
-  background: rgba(24,18,16,.96);
+  background: rgba(250,246,239,.98);
   border-bottom-color: var(--charcoal-light);
-  box-shadow: 0 6px 24px rgba(0,0,0,.35);
+  box-shadow: 0 4px 20px rgba(0,0,0,.10);
 }
 .header-inner {
   display: flex;
@@ -162,7 +162,7 @@ h1, h2, h3, h4 {
 .brand-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .footer-brand .brand-mark {
   width: 46px; height: 46px;
-  background: #f6efe6; border-radius: 50%; padding: 6px;
+  background: #fff; border-radius: 50%; padding: 6px;
   box-shadow: var(--shadow-accent);
 }
 .brand:hover .brand-mark { transform: rotate(-6deg) scale(1.04); }
@@ -640,7 +640,7 @@ section { padding: 96px 0; position: relative; z-index: 2; }
 @media (max-width: 860px) {
   .main-nav {
     position: absolute; top: 100%; left: 0; right: 0;
-    background: rgba(24,18,16,.98);
+    background: rgba(250,246,239,.98);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
     opacity: 0; visibility: hidden; pointer-events: none;
@@ -705,7 +705,7 @@ section { padding: 96px 0; position: relative; z-index: 2; }
   font-size: 15px;
   font-weight: 600;
 }
-.form-status.ok  { background: rgba(31,122,50,.18); color: #6edea0; border: 1px solid rgba(31,122,50,.35); }
+.form-status.ok  { background: rgba(31,122,50,.12); color: #1a6e38; border: 1px solid rgba(31,122,50,.28); }
 .form-status.err { background: rgba(224,92,40,.15); color: var(--fire); border: 1px solid rgba(224,92,40,.30); }
 .contact-form .h-captcha { margin: 4px 0 8px; }
 
@@ -730,11 +730,11 @@ section { padding: 96px 0; position: relative; z-index: 2; }
   bottom: 0; left: 0; right: 0;
   z-index: 48;
   padding: 12px 16px env(safe-area-inset-bottom, 0px);
-  background: rgba(24,18,16,.95);
+  background: rgba(26,16,5,.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-top: 1px solid var(--charcoal-light);
-  box-shadow: 0 -8px 24px rgba(0,0,0,.40);
+  border-top: 1px solid rgba(26,16,5,.25);
+  box-shadow: 0 -8px 24px rgba(0,0,0,.25);
   justify-content: center;
 }
 .sticky-order-bar .btn { width: 100%; max-width: 400px; justify-content: center; }
