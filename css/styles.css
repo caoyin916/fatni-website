@@ -270,17 +270,10 @@ h1, h2, h3, h4 {
   padding: 64px 24px;
   max-width: 720px;
 }
-.hero-logo-plate {
-  display: inline-block;
-  margin: 0 auto 20px;
-  padding: 0;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 14px 36px rgba(0,0,0,.40);
-  overflow: hidden;
-}
 .hero-logo {
-  height: 140px; max-height: 26vw; width: auto; max-width: 68vw; margin: 0; display: block;
+  height: 160px; max-height: 30vw; width: auto; max-width: 80vw;
+  margin: 0 auto 20px; display: block;
+  filter: drop-shadow(0 6px 24px rgba(0,0,0,.55));
 }
 .hero .section-eyebrow { color: var(--ember); justify-content: center; display: flex; }
 .hero h1 {
