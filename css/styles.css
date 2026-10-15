@@ -238,7 +238,7 @@ h1, h2, h3, h4 {
 /* ===== Hero ===== */
 .hero {
   position: relative;
-  min-height: 640px;
+  min-height: 420px;
   display: grid;
   place-items: center;
   text-align: center;
@@ -267,27 +267,27 @@ h1, h2, h3, h4 {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 96px 24px;
-  max-width: 820px;
+  padding: 64px 24px;
+  max-width: 720px;
 }
 .hero-logo-plate {
   display: inline-block;
-  margin: 0 auto 30px;
-  padding: 22px 36px;
+  margin: 0 auto 20px;
+  padding: 14px 24px;
   background: rgba(250,244,234,.96);
-  border-radius: 22px;
-  box-shadow: 0 22px 54px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.6);
+  border-radius: 16px;
+  box-shadow: 0 14px 36px rgba(0,0,0,.40), inset 0 0 0 1px rgba(255,255,255,.6);
 }
 .hero-logo {
-  width: 460px; max-width: 72vw; margin: 0; display: block;
+  width: 300px; max-width: 60vw; margin: 0; display: block;
 }
 .hero .section-eyebrow { color: var(--ember); justify-content: center; display: flex; }
 .hero h1 {
-  font-size: clamp(40px, 6.6vw, 76px);
+  font-size: clamp(28px, 4.4vw, 48px);
   font-weight: 800;
   letter-spacing: -.02em;
-  text-shadow: 0 6px 34px rgba(0,0,0,.4);
-  margin-bottom: 18px;
+  text-shadow: 0 4px 20px rgba(0,0,0,.4);
+  margin-bottom: 12px;
 }
 .hero h1 em {
   font-style: normal;
@@ -295,13 +295,13 @@ h1, h2, h3, h4 {
 }
 .hero p {
   font-family: var(--font-body);
-  font-size: 20px;
-  margin: 0 auto 34px;
-  max-width: 560px;
+  font-size: 17px;
+  margin: 0 auto 24px;
+  max-width: 500px;
   color: rgba(255,255,255,.92);
-  text-shadow: 0 2px 16px rgba(0,0,0,.5);
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
 }
-.hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
 /* ===== Sections ===== */
 section { padding: 96px 0; position: relative; z-index: 2; }
