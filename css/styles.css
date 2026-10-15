@@ -271,8 +271,11 @@ h1, h2, h3, h4 {
   max-width: 720px;
 }
 .hero-logo {
-  height: 160px; max-height: 30vw; width: auto; max-width: 80vw;
-  margin: 0 auto 20px; display: block;
+  display: block;
+  margin: 0 auto 20px;
+  width: auto;
+  height: auto;
+  max-width: min(200px, 50vw);
   filter: drop-shadow(0 6px 24px rgba(0,0,0,.55));
 }
 .hero .section-eyebrow { color: var(--ember); justify-content: center; display: flex; }
