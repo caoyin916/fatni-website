@@ -279,7 +279,7 @@ h1, h2, h3, h4 {
   box-shadow: 0 14px 36px rgba(0,0,0,.40), inset 0 0 0 1px rgba(255,255,255,.6);
 }
 .hero-logo {
-  width: 300px; max-width: 60vw; margin: 0; display: block;
+  height: 160px; max-height: 28vw; width: auto; max-width: 72vw; margin: 0; display: block;
 }
 .hero .section-eyebrow { color: var(--ember); justify-content: center; display: flex; }
 .hero h1 {
