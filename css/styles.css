@@ -275,7 +275,7 @@ h1, h2, h3, h4 {
   margin: 0 auto 20px;
   width: auto;
   height: auto;
-  max-width: min(200px, 50vw);
+  max-width: clamp(160px, 18vw, 280px);
   filter: drop-shadow(0 6px 24px rgba(0,0,0,.55));
 }
 .hero .section-eyebrow { color: var(--ember); justify-content: center; display: flex; }
