@@ -275,8 +275,8 @@ h1, h2, h3, h4 {
 }
 .hero-logo-wrap {
   display: block;
-  width: clamp(190px, 24vw, 300px);
-  height: clamp(190px, 24vw, 300px);
+  width: clamp(150px, 20vw, 220px);
+  height: clamp(150px, 20vw, 220px);
   border-radius: 50%;
   overflow: hidden;
   background: #fff;
