@@ -155,7 +155,7 @@ h1, h2, h3, h4 {
 .site-header.scrolled .header-inner { height: 70px; }
 .brand { display: flex; align-items: center; gap: 13px; }
 .brand-mark {
-  width: 48px; height: 48px;
+  width: 60px; height: 60px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
@@ -275,8 +275,8 @@ h1, h2, h3, h4 {
 }
 .hero-logo-wrap {
   display: block;
-  width: clamp(140px, 18vw, 240px);
-  height: clamp(140px, 18vw, 240px);
+  width: clamp(190px, 24vw, 300px);
+  height: clamp(190px, 24vw, 300px);
   border-radius: 50%;
   overflow: hidden;
   background: #fff;
@@ -688,7 +688,7 @@ section { padding: 96px 0; position: relative; z-index: 2; }
   .header-actions { gap: 10px; }
   .header-actions .cart-link { display: none; }
   .brand-name small { display: none; }
-  .brand-mark { width: 42px; height: 42px; font-size: 17px; }
+  .brand-mark { width: 50px; height: 50px; font-size: 17px; }
   .brand-name { font-size: 19px; }
   .header-actions .btn { padding: 11px 16px; font-size: 12px; white-space: nowrap; }
   /* Compact hero so the Order CTA lands above the fold on a phone */
