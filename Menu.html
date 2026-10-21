@@ -107,7 +107,8 @@
   .menu-cats { columns: 3; column-gap: 24px; padding-top: 36px; text-align: left; }
   .menu-cats.is-filtered { columns: 1; max-width: 760px; margin: 0 auto; }
   .menu-cat {
-    break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 24px;
+    /* display:block (not inline-block) so the browser balances cards across all columns */
+    break-inside: avoid; -webkit-column-break-inside: avoid; display: block; width: 100%; margin-bottom: 24px;
     background: var(--paper); border: 1px solid var(--line);
     border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm);
   }
@@ -304,7 +305,9 @@
   </div>
 
   <div class="wrap">
-    <div class="menu-cats" data-reveal>
+    <!-- No data-reveal here: this block is very tall, so the 12% visibility
+         threshold in reveal.js is never reached on short phones (menu stayed invisible). -->
+    <div class="menu-cats">
 
       <div class="menu-cat" id="skewers">
         <div class="menu-cat-head"><h3>BBQ Skewers</h3><span class="cn" lang="zh-Hans">烤串</span></div>
